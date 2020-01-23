@@ -1,0 +1,85 @@
+Aight so basicly
+
+
+Helix is a programming language (ish?) made with and on python.
+
+Helix is number based, meaning that all code is mostly just numbers, and no text
+
+this means that if the first letter of any line is not an operator (i.e numbers 1-10) then
+Helix will ignore it and carry on with the rest of the code.
+
+Operators are special numbers or letters that are used to do certin things such as:
+
+  Compare values in if statments
+  
+  Add to a variable
+  
+  Times a variable by another number
+  
+  ect.
+
+They are used in more complex modules like math and the if statment modules
+
+All Finished functions:
+
+  1 ~ set variable
+               |
+    Structure:   1 44 10 <--- variable Value
+                    |
+                    variable Name 
+
+  2 ~ print variable
+                    |
+     Structure:  2 44 <--- Variable Name
+
+
+  3 ~ Math Functions |Value to use with the operator
+                   |    |     
+         Structure 3 44 1 ? <- operator
+                      |
+      Variable to do math on
+
+      Math is one of the more complex modules, it uses 4 diffrent operators 
+      
+      All of the math module operators are as follows:
+        + ~ adds to the variable
+        - ~ Subtracts from the variable
+        * ~ Times the variable by the Value
+        / ~ Divides the variable by the value 
+
+      IMPORTANT!!:
+        if no variable is set, then the math module will create the variable with a value of 0
+  
+  4 ~ Goto line|
+               |
+    Structure: 4 0
+                 |
+                 |
+             Line number
+
+
+
+  5 ~ If statement:
+             |    
+  Structure: 5 44 ? 1 < Value to use with operator
+                ^ ^
+                   \-> operator
+         Variable     
+
+  The if statement is one of the more complex modules, it uses 2 diffrent operators 
+      
+      All of the if statement operators are as follows:
+        == ~ if Variable is equal to value then do
+        != ~ if variable is not equal to value then do
+
+      All code under the if statement only runs if the statement is true,
+      What code can be used by the if statement, is any code between the if statement and a
+      period (.) 
+  
+
+      Example:
+        1 50 5 ~ makes varaible 50 = 5
+
+        5 50 == 5 ~ if 50 equal to 5 Then do
+          2 50 ~ print 50
+        .
