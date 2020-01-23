@@ -8,19 +8,31 @@ clear()
 mainFile = open("main.he","r")
 
 line = mainFile.readlines()
-cline = -1
+cline = 0
 
 vars = {}
 
 passIf = False
 bruh = False
 
+def checkInt(lineC):
+  if '1,' in lineC:
+    return True
+  else:
+    return False
+
+def smartInt(lineC):
+  if '1,' in lineC:
+    return int(vars.get(lineC.replace("1,",""),1))
+  else:
+    return int(lineC)
+
 while not cline >= len(line) - 1:
   splitLine = line[cline].split()
   if splitLine == []:
     splitLine = ['null']  
 
-  time.sleep(0.05)
+  time.sleep(0.1)
   #print(splitLine)
   if splitLine[0] == "1" and passIf == False: # adding variables
 
@@ -31,20 +43,18 @@ while not cline >= len(line) - 1:
         print(vars.get(splitLine[1], ""))
 
   if splitLine[0] == "3" and passIf == False:
-    if splitLine[4] == "+": 
-      vars[splitLine[1]] = int(vars.get(splitLine[2],0)) + int(splitLine[3])
-    if splitLine[4] == "-":
-      vars[splitLine[1]] = int(vars.get(splitLine[2],0)) - int(splitLine[3])
-    if splitLine[4] == "/":
-      vars[splitLine[1]] = int(vars.get(splitLine[2],0)) / int(splitLine[3])
-    if splitLine[4] == "*":
-      vars[splitLine[1]] = int(vars.get(splitLine[2],0)) * int(splitLine[3])
+    if splitLine[3] == "+": 
+      vars[splitLine[1]] = smartInt(splitLine[2]) + smartInt(splitLine[4])
+    if splitLine[3] == "-":
+      vars[splitLine[1]] = smartInt(splitLine[2]) - smartInt(splitLine[4])
+    if splitLine[3] == "/":
+      vars[splitLine[1]] = smartInt(splitLine[2]) / smartInt(splitLine[4])
+    if splitLine[3] == "*":
+      vars[splitLine[1]] = smartInt(splitLine[2]) * smartInt(splitLine[4])
 
   if splitLine[0] == "4" and passIf == False:
-      cline = int(splitLine[1]) - 1
-      if passIf == True:
-        passIf = False
-
+      cline = smartInt(splitLine[1]) - 1
+      
   if splitLine[0] == "5" and passIf == False:
     if splitLine[2] == '==':
       if vars.get(splitLine[1]) == int(splitLine[3]):

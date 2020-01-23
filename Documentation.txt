@@ -18,6 +18,9 @@ Operators are special numbers or letters that are used to do certin things such 
   
   ect.
 
+if you want to use a variable do: 1,(variable name) this lets helix know your searching for a variable and not using a number
+
+
 They are used in more complex modules like math and the if statment modules
 
 All Finished functions:
