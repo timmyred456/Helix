@@ -1,4 +1,5 @@
 Aight so basicly
+🅼🅴 🅰🅽🅳  🆃🅷🅴  🅱🅾🅸🆂  🅻🅾🅾🅺🅸🅽  🅵🅾🆁  🅱🅴🅰🅽🆂
 
 
 Helix is a programming language (ish?) made with and on python.
@@ -17,6 +18,9 @@ Operators are special numbers or letters that are used to do certin things such 
   Times a variable by another number
   
   ect.
+
+if you want to use a variable do: 1,(variable name) this lets helix know your searching for a variable and not using a number
+
 
 They are used in more complex modules like math and the if statment modules
 
