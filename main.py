@@ -1,14 +1,15 @@
-import random, os, time
+import random, os, time, sys
 
 def clear():
   os.system("clear")
 
 clear()
 
-mainFile = open("main.he","r")
+mainFile = open("main.hx","r")
 
 line = mainFile.readlines()
 cline = 0
+
 
 vars = {}
 
@@ -27,20 +28,39 @@ def smartInt(lineC):
   else:
     return int(lineC)
 
-while not cline >= len(line) - 1:
+textBuffer = []
+
+
+showCurrent = False
+
+
+while not cline >= len(line):
   splitLine = line[cline].split()
   if splitLine == []:
     splitLine = ['null']  
 
-  time.sleep(0.1)
+
+  if showCurrent == True:
+    print(str(splitLine))
+
+  time.sleep(0.001)
   #print(splitLine)
   if splitLine[0] == "1" and passIf == False: # adding variables
-
-      vars[splitLine[1]] = int(splitLine[2])
+      vars[splitLine[1]] = smartInt(splitLine[2])
 
   if splitLine[0] == "2" and passIf == False: # printing vars
-
-        print(vars.get(splitLine[1], ""))
+      try:
+        if splitLine[2] == "1":
+          sys.stdout.write(str(smartInt(splitLine[1])))
+        elif splitLine[2] == "2":
+          print(chr(smartInt(splitLine[1])))
+        elif splitLine[2] == "3":
+          sys.stdout.write(str(chr(smartInt(splitLine[1]))))
+        elif splitLine[2] == "4":
+          pass
+      except:
+        print(smartInt(splitLine[1]))
+        
 
   if splitLine[0] == "3" and passIf == False:
     if splitLine[3] == "+": 
@@ -53,17 +73,17 @@ while not cline >= len(line) - 1:
       vars[splitLine[1]] = smartInt(splitLine[2]) * smartInt(splitLine[4])
 
   if splitLine[0] == "4" and passIf == False:
-      cline = smartInt(splitLine[1]) - 1
+      cline = smartInt(splitLine[1])
       
   if splitLine[0] == "5" and passIf == False:
     if splitLine[2] == '==':
-      if vars.get(splitLine[1]) == int(splitLine[3]):
+      if smartInt(splitLine[1]) == smartInt(splitLine[3]):
         passIf = False 
       else:
         passIf = True
       
     if splitLine[2] == "!=":
-      if vars[splitLine[1]] != int(splitLine[3]):
+      if smartInt(splitLine[1]) != smartInt(splitLine[3]):
         passIf = False
       else:
         passIf = True
