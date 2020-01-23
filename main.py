@@ -1,4 +1,5 @@
 import random, os, time, sys
+from colorama import Fore
 
 def clear():
   os.system("clear")
@@ -28,20 +29,22 @@ def smartInt(lineC):
   else:
     return int(lineC)
 
+def debugPrint(text):
+  if DEBUG_MODE == True:
+    print(Fore.CYAN,end='')
+    print(text) 
+    print(Fore.WHITE,end='')
+
 textBuffer = []
 
-
-showCurrent = False
+DEBUG_MODE = False
+SWITCHED_LINE = False
 
 
 while not cline >= len(line):
   splitLine = line[cline].split()
   if splitLine == []:
     splitLine = ['null']  
-
-
-  if showCurrent == True:
-    print(str(splitLine))
 
   time.sleep(0.001)
   #print(splitLine)
@@ -59,6 +62,7 @@ while not cline >= len(line):
         elif splitLine[2] == "4":
           pass
       except:
+        sys.stdout.flush()
         print(smartInt(splitLine[1]))
         
 
@@ -73,7 +77,9 @@ while not cline >= len(line):
       vars[splitLine[1]] = smartInt(splitLine[2]) * smartInt(splitLine[4])
 
   if splitLine[0] == "4" and passIf == False:
-      cline = smartInt(splitLine[1])
+      cline = smartInt(splitLine[1]) - 1
+      debugPrint("Moving to line:" + str(cline + 1) + "  With code: " + str(line[cline].split()) )
+      SWITCHED_LINE = True
       
   if splitLine[0] == "5" and passIf == False:
     if splitLine[2] == '==':
@@ -93,5 +99,8 @@ while not cline >= len(line):
   elif passIf == True and splitLine[0] == ".":
     passIf = False
 
-  cline = cline + 1
+  if SWITCHED_LINE == False:
+    cline = cline + 1
+  else:
+    SWITCHED_LINE = False
  
