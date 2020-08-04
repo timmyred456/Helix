@@ -1,21 +1,9 @@
-import random, os, time, sys
-from colorama import Fore
-
+import os, time, sys
 def clear():
   os.system("clear")
-
 clear()
 
-mainFile = open("main.hx","r")
 
-line = mainFile.readlines()
-cline = 0
-
-
-vars = {}
-
-passIf = False
-bruh = False
 
 def checkInt(lineC):
   if '1,' in lineC:
@@ -31,14 +19,24 @@ def smartInt(lineC):
 
 def debugPrint(text):
   if DEBUG_MODE == True:
-    print(Fore.CYAN,end='')
-    print(text) 
-    print(Fore.WHITE,end='')
+    print(text)
+    
 
 textBuffer = []
+mainFile = open("main.hx","r")
+line = mainFile.readlines()
+cline = 0
+vars = {}
+passIf = False
+
+
+
+
 
 DEBUG_MODE = False
+SLOW_MODE = True
 SWITCHED_LINE = False
+
 
 
 while not cline >= len(line):
@@ -46,8 +44,13 @@ while not cline >= len(line):
   if splitLine == []:
     splitLine = ['null']  
 
-  time.sleep(0.001)
-  #print(splitLine)
+  if DEBUG_MODE == True:
+    time.sleep(0.5)
+  elif SLOW_MODE == True:  
+    time.sleep(0.01)
+  else:
+    pass
+  
   if splitLine[0] == "1" and passIf == False: # adding variables
       vars[splitLine[1]] = smartInt(splitLine[2])
 

@@ -1,89 +1,52 @@
-Aight so basicly
-🅼🅴 🅰🅽🅳  🆃🅷🅴  🅱🅾🅸🆂  🅻🅾🅾🅺🅸🅽  🅵🅾🆁  🅱🅴🅰🅽🆂
+All functions to date:
 
+  1 = set variable:
+    1 50 10 ~ creates a variable nammed "50" with the value of 10
 
-Helix is a programming language (ish?) made with and on python.
+    to access variables in code, use 1,(variable Name), This lets helix know its a variable, and not a number
 
-Helix is number based, meaning that all code is mostly just numbers, and no text
+  2 = print number/variable:
+    
+    2 1,50 ~ Prints the value of a variable nammed "50"
 
-this means that if the first letter of any line is not an operator (i.e numbers 1-10) then
-Helix will ignore it and carry on with the rest of the code.
+    2 50 ~ prints the number 50
 
-Operators are special numbers or letters that are used to do certin things such as:
+    2 50 1 ~ prints the number 50, on the same line
 
-  Compare values in if statments
+    2 50 2 ~ prints the ASCII character number 50 on a newline
+
+    2 50 3 ~ prints the ASCII character number 50 on the same line
+
   
-  Add to a variable
-  
-  Times a variable by another number
-  
-  ect.
+  3 - math:
+    3 50 1,50 + 1 ~ sets variable 50 to the variable 50's value + 1
 
-if you want to use a variable do: 1,(variable name) this lets helix know your searching for a variable and not using a number
-
-
-They are used in more complex modules like math and the if statment modules
-
-All Finished functions:
-
-  1 ~ set variable
-               |
-    Structure:   1 44 10 <--- variable Value
-                    |
-                    variable Name 
-
-  2 ~ print variable
-                    |
-     Structure:  2 44 <--- Variable Name
+    Works with:
+      + ~ Add
+      - ~ Subtract
+      * ~ Time's
+      / ~ Divide
 
 
-  3 ~ Math Functions |Value to use with the operator
-                   |    |     
-         Structure 3 44 1 ? <- operator
-                      |
-      Variable to do math on
+  4 - Goto Line:
+    4 2 ~ goes to line 2 
 
-      Math is one of the more complex modules, it uses 4 diffrent operators 
-      
-      All of the math module operators are as follows:
-        + ~ adds to the variable
-        - ~ Subtracts from the variable
-        * ~ Times the variable by the Value
-        / ~ Divides the variable by the value 
+    If line dosent exsist, it returns an error
 
-      IMPORTANT!!:
-        if no variable is set, then the math module will create the variable with a value of 0
-  
-  4 ~ Goto line|
-               |
-    Structure: 4 0
-                 |
-                 |
-             Line number
+  5 - If statment:
+    5 1,50 == 10 ~ if variable 50 is equal to 10, run the code under the if statment
 
+    'If statments' are contained in-between the line that the function is on, and a period
 
+    'If statments' CANNOT overlap, im bad at coding so until i fix it, were stuck with this
+    
+    Example:
 
-  5 ~ If statement:
-             |    
-  Structure: 5 44 ? 1 < Value to use with operator
-                ^ ^
-                   \-> operator
-         Variable     
+      5 1,50 == 10
+        (Code inside here will run if above is true)
+      .
 
-  The if statement is one of the more complex modules, it uses 2 diffrent operators 
-      
-      All of the if statement operators are as follows:
-        == ~ if Variable is equal to value then do
-        != ~ if variable is not equal to value then do
+    Current compare characters:
 
-      All code under the if statement only runs if the statement is true,
-      What code can be used by the if statement, is any code between the if statement and a
-      period (.) 
-  
-
-      Example:
-        1 50 5 ~ makes varaible 50 = 5
-
-        5 50 == 5 ~ if 50 equal to 5 Then do
-          2 50 ~ print 50
-        .
+      == ~ If thing equals, run
+      != ~ If thing does not equal, run
