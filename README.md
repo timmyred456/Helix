@@ -8,7 +8,7 @@ or at least i think thats what it is
   Helix is made in python, not sure if it counts as a programing language,
   And only uses numbers and symbols, no letters required!
 
-  It can read code about as fast as python, has a debug mode ( if you can even call it that )
+  It can read code a bit slower than python, has a debug mode ( if you can even call it that )
   inside the python file, its a variable cause this was made awhile back, and is prone to breaking
   mostly just putting up all the old changes i forgot to commit, might come back to it with my new found programming skills!
 
@@ -16,6 +16,8 @@ or at least i think thats what it is
 # Limitations
 
   Helix cant use nested "If Statments", due to once again, dumb old me.
+  
+  The Cyclomatic Complexity of this program is 27, Twenty fucking Seven, what was i thinking when i made this.
 
   There is no built in While loop, you will have to make one with "goto" statments, Sorry :(
 
